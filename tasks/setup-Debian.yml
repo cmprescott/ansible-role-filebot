@@ -5,11 +5,11 @@
   stat: path="{{ filebot_dir_install }}/filebot"
   register: filebot_bin
 
-- name: Debian | ensure download destination read, write, execute
+- name: Debian | ensure download dir can read, write, execute
   file:
     path: "{{ filebot_dir_download }}"
     state: directory
-    mode: "u=rwx,g=rwx,o=rwx"
+    mode: "u+rwx"
     owner: "{{ ansible_ssh_user }}"
   when: not filebot_bin.stat.exists
 
