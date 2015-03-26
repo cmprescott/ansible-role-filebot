@@ -1,2 +1,15 @@
 ---
 # tasks file for ansible-role-filebot
+
+# -------------
+# Platform conditional install and configuration
+# -------------
+- name: Get most specific variables avaiable
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+    - "{{ ansible_system }}.yml"  
+  
+- include: setup-Debian.yml
+  when:  filebot_pkg_install_using == 'Debian_dpkg'
