@@ -9,4 +9,5 @@
     - "{{ ansible_system }}.yml"  
   
 - include: setup-Debian.yml
+  sudo: Yes
   when:  filebot_pkg_install_using == 'Debian_dpkg'
