@@ -1,0 +1,4 @@
+---
+# MacOSX specific vars
+
+filebot_pkg_install_using: MacOSX_homebrew
