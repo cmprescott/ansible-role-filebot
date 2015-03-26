@@ -6,17 +6,16 @@ Installs FileBot 4.5 and handles dependencies
 Requirements
 ------------
 
-**TODO:** Document supported OS
+- **[Darwin](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html#os "Mac OS X ")**
+  - *Mac OS X*: 10.8.3+ (Mountain Lion|Mavericks|Yosemite)
+- **[Linux](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html#os "Linux (Java JRE 8)")**
+  - *Debian*: 7+ (wheezy|jessie)
+  - *Ubuntu*: 12.04+ (Precise|Raring|Saucy|Trusty|Utopic|Vivid)
 
 Role Variables
 --------------
 
-```yaml
-filebot_pkg_install_using: 
-filebot_pkg_url: 
-filebot_dir_download: 
-filebot_dir_install:
-```
+**TODO:** None currently accounted for. Might want to customize install.
 
 Dependencies
 ------------

@@ -1,7 +1,2 @@
 ---
 # defaults file for ansible-role-filebot
-
-filebot_pkg_install_using: 
-filebot_pkg_url: 
-filebot_dir_download: 
-filebot_dir_install:
