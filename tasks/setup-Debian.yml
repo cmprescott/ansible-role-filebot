@@ -1,7 +1,7 @@
 ---
 # Debian (Linux) tasks file for ansible-role-filebot
 
-- name: Debian | check for installation 
+- name: Debian | check for FileBot installation 
   stat: path="{{ filebot_dir_install }}/filebot"
   register: filebot_bin
 
@@ -13,15 +13,15 @@
     owner: "{{ ansible_ssh_user }}"
   when: not filebot_bin.stat.exists
 
-- name: Debian | download installer
+- name: Debian | download FileBot installer
   get_url:
     url: "{{ filebot_pkg_url[ansible_architecture] }}"
     dest: "{{ filebot_dir_download }}/filebot.deb"
   when: not filebot_bin.stat.exists
   
-- name: Debian | run the installer
+- name: Debian | run the FileBot installer
   sudo: Yes
   apt:
     deb: "{{ filebot_dir_download }}/filebot.deb"
   when: not filebot_bin.stat.exists
-    
+  
