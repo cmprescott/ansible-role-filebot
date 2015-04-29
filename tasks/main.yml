@@ -14,7 +14,7 @@
 # -------------
 # Verify installed
 # -------------  
-- include: setup-Debian.yml
+- include: setup-deb.yml
   sudo: Yes
   when:  filebot_pkg_install_using == 'Debian_dpkg'
 
