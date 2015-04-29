@@ -16,8 +16,8 @@
 # -------------  
 - include: setup-deb.yml
   sudo: Yes
-  when:  filebot_pkg_install_using == 'Debian_dpkg'
+  when:  ansible_pkg_mgr == 'apt'
 
 - include: setup-MacOSX.yml
   sudo: Yes
-  when: filebot_pkg_install_using == 'MacOSX_homebrew'
+  when: ansible_distribution == 'MacOSX'
