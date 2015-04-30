@@ -26,7 +26,23 @@ esac
 Role Variables
 --------------
 
-**TODO:** None currently accounted for. Might want to customize install.
+```yaml
+# --- Defaults | All OS ---
+filebot_version: 4.5.6
+filebot_mirror: "http://downloads.sourceforge.net/project/filebot/filebot/FileBot_{{ filebot_version }}"
+
+
+# --- Defaults | OS Specific  ---
+filebot_deb:
+  i386: "filebot_{{ filebot_version }}_i386.deb"
+  x86_64: "filebot_{{ filebot_version }}_amd64.deb"
+
+
+# --- Variables | Deb  ---
+filebot_deb_url: "{{ filebot_mirror }}/{{ filebot_deb[ansible_architecture] }}"
+filebot_deb_tmp: "/tmp/{{ filebot_deb[ansible_architecture] }}"
+filebot_deb_bin: /usr/bin/filebot
+```
 
 Dependencies
 ------------
@@ -37,7 +53,7 @@ Example Playbook
 ----------------
 
 ```yaml
-- hosts: file_servers
+- hosts: servers.file
   roles:
      - role: ansible-role-filebot
 ```
