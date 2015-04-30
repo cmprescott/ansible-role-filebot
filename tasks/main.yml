@@ -2,22 +2,12 @@
 # tasks file for ansible-role-filebot
 
 # -------------
-# Include variables
-# -------------
-- name: Get most specific FileBot variables available
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution }}.yml"
-    - "{{ ansible_os_family }}.yml"
-    - "{{ ansible_system }}.yml"  
-
-# -------------
-# Verify installed
+# setup
 # -------------  
-- include: setup-Debian.yml
+- include: setup-deb.yml
   sudo: Yes
-  when:  filebot_pkg_install_using == 'Debian_dpkg'
+  when:  ansible_pkg_mgr == 'apt'
 
 - include: setup-MacOSX.yml
   sudo: Yes
-  when: filebot_pkg_install_using == 'MacOSX_homebrew'
+  when: ansible_distribution == 'MacOSX'
