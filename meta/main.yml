@@ -3,17 +3,12 @@ galaxy_info:
   author: Prescott Chris
   description: Installs FileBot 4.5 and dependencies
   license: BSD
-  min_ansible_version: 1.8
+  min_ansible_version: 1.6
   platforms:
   - name: Debian
-    versions:
-    - all  
+  - name: elementary os
   - name: Ubuntu
-    versions:
-    - all
-  - name: MacOSX
-    versions:
-    - all
+  - name: Darwin
   categories:
   - system
   
