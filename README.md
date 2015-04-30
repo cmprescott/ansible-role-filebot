@@ -7,11 +7,21 @@ Installs FileBot 4.5 and handles dependencies
 Requirements
 ------------
 
-- **[Darwin](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html#os "Mac OS X ")**
-  - *Mac OS X*: 10.8.3+ (Mountain Lion|Mavericks|Yosemite)
-- **[Linux](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html#os "Linux (Java JRE 8)")**
-  - *Debian*: 7+ (wheezy|jessie)
-  - *Ubuntu*: 12.04+ (Precise|Raring|Saucy|Trusty|Utopic|Vivid)
+```shell
+# Ansible version 1.6+
+ansible --version
+
+# JRE 1.8+
+java -version
+
+# Linux needs apt, OS X needs homebrew cask
+case $OSTYPE in
+  "linux"*)
+      apt --version;;
+  "darwin"*)
+      brew cask --version;;
+esac
+```
 
 Role Variables
 --------------
