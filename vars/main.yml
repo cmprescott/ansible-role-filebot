@@ -1,0 +1,6 @@
+---
+
+# --- deb vars ---
+filebot_deb_url: "{{ filebot_mirror }}/{{ filebot_deb[ansible_architecture] }}"
+filebot_deb_tmp: "/tmp/{{ filebot_deb[ansible_architecture] }}"
+filebot_deb_bin: /usr/bin/filebot
