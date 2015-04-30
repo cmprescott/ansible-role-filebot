@@ -1,5 +1,6 @@
 Ansible Role: FileBot
 =========
+[![Build Status](https://travis-ci.org/cmprescott/ansible-role-filebot.svg?branch=master)](https://travis-ci.org/cmprescott/ansible-role-filebot)
 
 Installs FileBot 4.5 and handles dependencies
 
