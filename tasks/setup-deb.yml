@@ -5,12 +5,14 @@
   stat: path="{{ filebot_deb_bin }}"
   register: filebot_bin
 
+
 - name: deb | download FileBot installer
   get_url:
     url: "{{ filebot_deb_url }}"
     dest: "{{ filebot_deb_tmp }}"
   when: not filebot_bin.stat.exists
-  
+
+
 - name: deb | run the FileBot installer
   sudo: Yes
   apt:

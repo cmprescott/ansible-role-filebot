@@ -1,13 +1,13 @@
 ---
 # tasks file for ansible-role-filebot
 
-# -------------
-# setup
-# -------------  
+# ----- SETUP -----
 - include: setup-deb.yml
   sudo: Yes
   when:  ansible_pkg_mgr == 'apt'
 
+
 - include: setup-cask.yml
   sudo: Yes
   when: ansible_distribution == 'MacOSX'
+

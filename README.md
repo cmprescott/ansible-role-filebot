@@ -7,16 +7,42 @@ Installs FileBot 4.5 and handles dependencies
 Requirements
 ------------
 
-- **[Darwin](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html#os "Mac OS X ")**
-  - *Mac OS X*: 10.8.3+ (Mountain Lion|Mavericks|Yosemite)
-- **[Linux](http://www.oracle.com/technetwork/java/javase/certconfig-2095354.html#os "Linux (Java JRE 8)")**
-  - *Debian*: 7+ (wheezy|jessie)
-  - *Ubuntu*: 12.04+ (Precise|Raring|Saucy|Trusty|Utopic|Vivid)
+```shell
+# Ansible version 1.6+
+ansible --version
+
+# JRE 1.8+
+java -version
+
+# Linux needs apt, OS X needs homebrew cask
+case $OSTYPE in
+  "linux"*)
+      apt --version;;
+  "darwin"*)
+      brew cask --version;;
+esac
+```
 
 Role Variables
 --------------
 
-**TODO:** None currently accounted for. Might want to customize install.
+```yaml
+# --- Defaults | All OS ---
+filebot_version: 4.5.6
+filebot_mirror: "http://downloads.sourceforge.net/project/filebot/filebot/FileBot_{{ filebot_version }}"
+
+
+# --- Defaults | OS Specific  ---
+filebot_deb:
+  i386: "filebot_{{ filebot_version }}_i386.deb"
+  x86_64: "filebot_{{ filebot_version }}_amd64.deb"
+
+
+# --- Variables | Deb  ---
+filebot_deb_url: "{{ filebot_mirror }}/{{ filebot_deb[ansible_architecture] }}"
+filebot_deb_tmp: "/tmp/{{ filebot_deb[ansible_architecture] }}"
+filebot_deb_bin: /usr/bin/filebot
+```
 
 Dependencies
 ------------
@@ -27,7 +53,7 @@ Example Playbook
 ----------------
 
 ```yaml
-- hosts: file_servers
+- hosts: servers.file
   roles:
      - role: ansible-role-filebot
 ```
