@@ -1,9 +1,7 @@
 ---
 # tasks file for ansible-role-filebot
 
-# -------------
-# setup
-# -------------  
+# ----- SETUP -----
 - include: setup-deb.yml
   sudo: Yes
   when:  ansible_pkg_mgr == 'apt'
