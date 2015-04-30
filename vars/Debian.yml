@@ -1,8 +1,0 @@
----
-# Debian specific vars
-
-filebot_pkg_url:
-  i386: http://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.5.6/filebot_4.5.6_i386.deb
-  x86_64: http://downloads.sourceforge.net/project/filebot/filebot/FileBot_4.5.6/filebot_4.5.6_amd64.deb
-filebot_dir_download: /tmp
-filebot_dir_install: /usr/bin
