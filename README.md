@@ -2,7 +2,7 @@ Ansible Role: FileBot
 =========
 [![Build Status](https://travis-ci.org/cmprescott/ansible-role-filebot.svg?branch=master)](https://travis-ci.org/cmprescott/ansible-role-filebot)
 
-Installs FileBot 4.5 and handles dependencies
+Installs [FileBot][filebot]. Templates kick-off script for [AMC][amc].
 
 Requirements
 ------------
@@ -72,3 +72,6 @@ Author Information
 ------------------
 
 Prescott Chris
+
+[filebot]: http://www.filebot.net/
+[amc]: http://www.filebot.net/forums/viewtopic.php?t=215
