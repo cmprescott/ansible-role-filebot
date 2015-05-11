@@ -1,7 +1,7 @@
 ---
 # tasks file for ansible-role-filebot
 
-# ----- SETUP -----
+
 - include: setup-deb.yml
   sudo: Yes
   when:  ansible_pkg_mgr == 'apt'
@@ -11,3 +11,9 @@
   sudo: Yes
   when: ansible_distribution == 'MacOSX'
 
+
+- name: "ensure filebot.amc.sh templated"
+  template: src="filebot.amc.sh.j2" dest="{{ filebot_amc_path }}" mode=0755
+
+
+...
