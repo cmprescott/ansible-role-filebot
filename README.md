@@ -37,6 +37,7 @@ filebot_deb:
   x86_64: "filebot_{{ filebot_version }}_amd64.deb"
 
 # Script to kick-off FileBot's "Automated Media Control" groovy script
+filebot_amc_path: "~/filebot.amc.sh"
 filebot_amc_inputs: []
 filebot_amc_cli_args:
   - 'log-file ~/amc.log'
