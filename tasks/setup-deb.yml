@@ -19,3 +19,4 @@
     deb: "{{ filebot_deb_tmp }}"
   when: not filebot_bin.stat.exists
 
+...
