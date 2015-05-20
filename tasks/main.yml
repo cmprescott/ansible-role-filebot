@@ -12,7 +12,7 @@
   when: ansible_distribution == 'MacOSX'
 
 
-- name: "ensure filebot.amc.sh templated"
+- name: "ensure templated filebot.amc.sh"
   template: src="filebot.amc.sh.j2" dest="{{ filebot_amc_path }}" mode=0755
 
 

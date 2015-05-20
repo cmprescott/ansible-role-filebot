@@ -1,9 +1,11 @@
 ---
 # Darwin (Mac OS X) tasks file for ansible-role-filebot
 
-- name: cask| ensure FileBot present
+
+- name: "Setup | cask | ensure present"
   homebrew_cask:
     name: filebot
     state: present
+
 
 ...
