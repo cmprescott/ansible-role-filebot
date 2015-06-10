@@ -1,0 +1,17 @@
+#!/bin/bash
+# {{ ansible_managed }}
+# See http://www.filebot.net/forums/viewtopic.php?f=4&t=215&p=5316
+
+# INPUT
+{% for input in filebot_amc_inputs %}{{ input }}
+{% endfor %} 
+
+# EXECUTE
+filebot -script fn:amc \
+{% for arg in filebot_amc_cli_args %}--{{ arg }} \
+{% endfor %}
+--def \
+{% for def in filebot_amc_defs %}{{ def }} \
+{% endfor %}
+&
+
