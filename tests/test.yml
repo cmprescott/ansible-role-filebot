@@ -1,13 +1,17 @@
+---
+# ansible-role-filebot/tests/test.yml
+
 - hosts: all
   roles:
     - name: "FileBot"
       role: ../..
       filebot_amc_cli_args:
         - 'log-file ~/amc.log'
-        - 'action copy' 
+        - 'action copy'
         - 'conflict override -non-strict'
-      filebot_amc_def:
+      filebot_amc_defs:
         - 'music=y'
         - 'artwork=y'
         - '"seriesFormat=~/Videos/TV/{n}/Season {s.pad(2)}/{n}.{s00e00}.{t} ({y})"'
         - '"movieFormat=~/Videos/Films/{n} ({y})/{n}"'
+...
