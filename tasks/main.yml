@@ -3,12 +3,12 @@
 
 
 - include: setup-deb.yml
-  sudo: Yes
+  become: Yes
   when:  ansible_pkg_mgr == 'apt'
 
 
 - include: setup-cask.yml
-  sudo: Yes
+  become: Yes
   when: ansible_distribution == 'MacOSX'
 
 
