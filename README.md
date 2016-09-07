@@ -29,7 +29,7 @@ Role Variables
 ```yaml
 # --- Defaults/Params ---
 # Package configuration
-filebot_version: 4.5.6
+filebot_version: 4.7.2
 filebot_mirror: "http://downloads.sourceforge.net/project/filebot/filebot/FileBot_{{ filebot_version }}"
 
 # Script to kick-off FileBot's "Automated Media Control" groovy script
