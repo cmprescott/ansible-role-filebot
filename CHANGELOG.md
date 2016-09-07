@@ -2,6 +2,18 @@
 
 ## [Unreleased][unreleased]
 
+## [0.2.1] - 2019-09-06
+### Added
+- Template AMC kickoff script
+
+## [0.2.0] - 2015-06-09
+### Added
+- Template AMC kickoff script
+
+### Updated
+- YAML style
+- Don't run as root
+
 ## [0.1.0] - 2015-04-29
 ### Added
 - Working CI
