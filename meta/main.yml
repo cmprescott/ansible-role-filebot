@@ -6,15 +6,10 @@ galaxy_info:
   min_ansible_version: 1.6
   platforms:
   - name: Debian
-  - name: elementary os
   - name: Ubuntu
-  - name: Darwin
   categories:
   - system
-  
-# TODO: Handle JRE 8
+
 dependencies: []
-  # List your role dependencies here, one per line. Only
-  # dependencies available via galaxy should be listed here.
-  # Be sure to remove the '[]' above if you add dependencies
-  # to this list.
+
+...
