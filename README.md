@@ -8,11 +8,8 @@ Requirements
 ------------
 
 ```shell
-# Ansible version 1.6+
+# Ansible version 2.0.0.2+
 ansible --version
-
-# JRE 1.8+
-java -version
 
 # Linux needs apt, OS X needs homebrew cask
 case $OSTYPE in
@@ -58,7 +55,7 @@ filebot_deb_bin: /usr/bin/filebot
 Dependencies
 ------------
 
-**TODO:** Handle Java 8 JRE dependency 
+None.
 
 Example Playbook
 ----------------

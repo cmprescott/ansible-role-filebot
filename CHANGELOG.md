@@ -2,9 +2,24 @@
 
 ## [Unreleased][unreleased]
 
-## [0.2.1] - 2019-09-06
-### Added
-- Template AMC kickoff script
+## [0.3.0] - 2016-09-10
+### Updated
+- Tasks to 1 file
+- Requirements in README
+
+### Fixed
+- Links in CHANGELOG
+- sudo to become warning
+- README references to Java
+
+## [0.2.1] - 2016-09-06
+### Updated
+- README with new default version.
+
+### Fixed
+- Unit test script
+- Anible version
+- sudo to become warnings
 
 ## [0.2.0] - 2015-06-09
 ### Added
@@ -28,3 +43,10 @@
 - Install FileBot via deb file on Debian, & Ubuntu
 - Install FileBot via homebrew cask on Mac OS X
 - Hastily done readme calling out dependencies not handled
+
+[Unreleased]: https://github.com/cmprescott/ansible-role-filebot/compare/0.3.0...HEAD
+[0.3.0]: https://github.com/cmprescott/ansible-role-filebot/compare/0.2.1...0.3.0
+[0.2.1]: https://github.com/cmprescott/ansible-role-filebot/compare/0.2.0...0.2.1
+[0.2.0]: https://github.com/cmprescott/ansible-role-filebot/compare/0.1.0...0.2.0
+[0.1.0]: https://github.com/cmprescott/ansible-role-filebot/compare/0.0.1...0.1.0
+[0.0.1]: https://github.com/cmprescott/ansible-role-filebot/compare/0.0.0...0.0.1

@@ -1,19 +1,31 @@
+# ansible-role-filebot/tasks/main.yml
 ---
-# tasks file for ansible-role-filebot
-
-
-- include: setup-deb.yml
-  become: Yes
+# -------------
+# Install Filebot
+# -------------
+- name: "apt | check for installation"
+  stat: path="{{ filebot_deb_bin }}"
+  register: filebot_bin
   when:  ansible_pkg_mgr == 'apt'
 
+- name: "apt | download installer"
+  get_url: url="{{ filebot_deb_url }}" dest="{{ filebot_deb_tmp }}"
+  when: ansible_pkg_mgr == 'apt' and not filebot_bin.stat.exists
 
-- include: setup-cask.yml
+- name: "apt | run the installer"
   become: Yes
+  apt: deb="{{ filebot_deb_tmp }}"
+  when: ansible_pkg_mgr == 'apt' and not filebot_bin.stat.exists
+  
+- name: "brew | ensure present"
+  homebrew_cask:
+    name: filebot
+    state: present
   when: ansible_distribution == 'MacOSX'
 
-
-- name: "ensure templated filebot.amc.sh"
+# -------------
+# Configure Filebot
+# -------------
+- name: "all | ensure templated filebot.amc.sh"
   template: src="filebot.amc.sh.j2" dest="{{ filebot_amc_path }}" mode=0755
-
-
 ...
