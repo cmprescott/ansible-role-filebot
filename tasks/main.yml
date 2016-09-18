@@ -1,12 +1,10 @@
 # ansible-role-filebot/tasks/main.yml
 ---
-# -------------
-# Install Filebot
-# -------------
+# --- Install Filebot via deb ---
 - name: "apt | check for installation"
   stat: path="{{ filebot_deb_bin }}"
   register: filebot_bin
-  when:  ansible_pkg_mgr == 'apt'
+  when: ansible_pkg_mgr == 'apt'
 
 - name: "apt | download installer"
   get_url: url="{{ filebot_deb_url }}" dest="{{ filebot_deb_tmp }}"
@@ -16,16 +14,33 @@
   become: Yes
   apt: deb="{{ filebot_deb_tmp }}"
   when: ansible_pkg_mgr == 'apt' and not filebot_bin.stat.exists
-  
-- name: "brew | ensure present"
-  homebrew_cask:
-    name: filebot
-    state: present
-  when: ansible_distribution == 'MacOSX'
 
-# -------------
-# Configure Filebot
-# -------------
+# --- Install Filebot portable when not deb ---
+- name: "portable | check for installation"
+  stat: path="{{ filebot_portable_bin }}"
+  register: filebot_bin
+  when: ansible_pkg_mgr != 'apt'
+
+- name: "portable | download installer"
+  get_url: url="{{ filebot_portable_url }}" dest="{{ filebot_portable_tmp }}"
+  when: ansible_pkg_mgr != 'apt' and not filebot_bin.stat.exists
+
+- name: "portable | ensure install directory exists"
+  become: Yes
+  file: path="{{ filebot_portable_install }}" state=directory
+  when: ansible_pkg_mgr != 'apt'
+
+- name: "portable | ensure the binaries extracted"
+  become: Yes
+  unarchive: copy="no" src="{{ filebot_portable_tmp }}" dest="{{ filebot_portable_install }}/" 
+  when: ansible_pkg_mgr != 'apt' and not filebot_bin.stat.exists
+
+- name: "portable | ensure link on path to filebot bin"
+  become: Yes
+  file: src="{{ filebot_portable_install }}/filebot.sh" dest="{{ filebot_portable_bin }}" state=link
+  when: ansible_pkg_mgr != 'apt'
+
+# --- Configure Filebot ---
 - name: "all | ensure templated filebot.amc.sh"
   template: src="filebot.amc.sh.j2" dest="{{ filebot_amc_path }}" mode=0755
 ...
