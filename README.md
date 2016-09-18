@@ -10,14 +10,6 @@ Requirements
 ```shell
 # Ansible version 2.0.0.2+
 ansible --version
-
-# Linux needs apt, OS X needs homebrew cask
-case $OSTYPE in
-  "linux"*)
-      apt --version;;
-  "darwin"*)
-      brew cask --version;;
-esac
 ```
 
 Role Variables
@@ -50,6 +42,13 @@ filebot_deb:
 filebot_deb_url: "{{ filebot_mirror }}/{{ filebot_deb[ansible_architecture] }}"
 filebot_deb_tmp: "/tmp/{{ filebot_deb[ansible_architecture] }}"
 filebot_deb_bin: /usr/bin/filebot
+
+# --- Portable ---
+filebot_portable: "FileBot_4.7.2-portable.zip"
+filebot_portable_url: "{{ filebot_mirror }}/{{ filebot_portable }}"
+filebot_portable_tmp: "/tmp/{{ filebot_portable }}"
+filebot_portable_install: "/usr/local/lib/filebot/"
+filebot_portable_bin: "/usr/local/bin/filebot"
 ```
 
 Dependencies

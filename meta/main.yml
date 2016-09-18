@@ -1,12 +1,14 @@
 ---
 galaxy_info:
   author: Prescott Chris
-  description: Installs FileBot 4.5 and dependencies
+  description: Installs FileBot and dependencies
   license: BSD
   min_ansible_version: 2.0.0.2
   platforms:
-  - name: Debian
-  - name: Ubuntu
+  - name: GenericUNIX
+    versions:
+    - all
+    - any
   categories:
   - system
 
