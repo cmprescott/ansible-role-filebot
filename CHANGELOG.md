@@ -2,6 +2,16 @@
 
 ## [Unreleased][unreleased]
 
+## [0.4.0] - 2016-09-18
+### Added
+- Portable installation for platform generic
+
+### Updated
+- Requirements in README & meta
+
+### Removed
+- Install on OS X via brew
+
 ## [0.3.0] - 2016-09-10
 ### Updated
 - Tasks to 1 file
